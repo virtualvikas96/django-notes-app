@@ -1,20 +1,23 @@
+#Base image
 FROM python:3.9
 
+#Sets the working directory
 WORKDIR /app/backend
 
-COPY requirements.txt /app/backend
+#Copy requirements file into container
+COPY . /app/backend
+
+#Install system level dependencies
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y gcc default-libmysqlclient-dev pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
-
-# Install app dependencies
+#Install mysqlclient
 RUN pip install mysqlclient
+
+#Install all dependencies provided in reqirements file
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . /app/backend
-
-EXPOSE 8000
-#RUN python manage.py migrate
-#RUN python manage.py makemigrations
+#Exposing conatiner port
+EXPOSE 8080
