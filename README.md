@@ -38,6 +38,8 @@ This project is a **Django-based Notes App** containerized using **Docker**, usi
 git clone https://github.com/virtualvikas96/django-notes-app.git
 cd django-notes-app
 
+---
+
 ### 2. Build and Start Services
 docker-compose up --build
 
@@ -45,10 +47,16 @@ The first run will build images and run:
 Django migrations
 Start MySQL, Gunicorn, and Nginx
 
-333 🔌 Access the App
+---
+
+
+### 🔌 Access the App
  🛠 Django Admin: http://localhost:8000/admin
 
  🌐 Nginx Proxy (Frontend): http://localhost
+
+---
+
 
 ### 📂 Environment Variables
 Environment variables for django_app service:
@@ -60,16 +68,25 @@ DB_HOST=db_cont
 
 You can manage them in the docker-compose.yml file or a separate .env file.
 
+---
+
+
 ### ✅ Healthchecks
 MySQL: Uses mysqladmin ping to confirm readiness
 
 Django: Pings the admin page on port 8000 to ensure app is live
+
+---
+
 
 ### 🔄 Stopping the App
 docker-compose down
 
 To remove volumes:
 docker-compose down -v
+
+---
+
 
 ### 🙌 Contributing
 Feel free to fork, raise issues, or submit pull requests. Let's build together!
